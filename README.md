@@ -13,9 +13,7 @@
 ### Association
 - has_many :items
 - has_many :comments
-- belongs_to :card
-- belongs_to :address
-- has_many :user_item
+- has_many :user_items
 
 
 
@@ -36,7 +34,7 @@
 ### Association
 - belongs_to :user
 - has_many :comments
-- has_many :user_item
+- has_one :user_item
 
 ## user_item_table
 |Column|Type|Options|
@@ -47,6 +45,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+- has_one :address
 
 ## address_table
 |Column|Type|Options|
@@ -60,6 +59,7 @@
 |phone_number|string|null: false|
 
 ### Association
+- belongs_to :user_item
 
 ## comments_table
 |Column|Type|Options|
