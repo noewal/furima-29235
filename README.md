@@ -44,7 +44,7 @@
 ## address_table
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
+|user_item_id|integer|null: false, foreign_key: true|
 |post_cord|string|null: false|
 |prefecture|integer|null: false|
 |city|string|null: false|
