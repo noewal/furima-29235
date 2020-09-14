@@ -26,7 +26,7 @@
 |status_id|integer|null: false|
 |cost|integer|null: false|
 |prefecture_id|integer|null: false|
-|day|integer|null: false|
+|day_id|integer|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
@@ -52,7 +52,7 @@
 |------|----|-------|
 |user_item_id|integer|null: false, foreign_key: true|
 |post_cord|string|null: false|
-|prefecture|integer|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building_name|string|
