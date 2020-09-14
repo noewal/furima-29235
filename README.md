@@ -15,6 +15,8 @@
 - has_many :comments
 - belongs_to :card
 - belongs_to :address
+- has_many :user_item
+
 
 
 ## items_table
@@ -34,12 +36,17 @@
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_many :user_item
 
 ## user_item_table
 |Column|Type|Options|
 |------|----|-------|
 |item_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
 
 ## address_table
 |Column|Type|Options|
@@ -62,6 +69,6 @@
 |comments|text|
 
 ### Association
-- belongs_to :user
+- belongs_to :user_item
 - belongs_to :items
 
