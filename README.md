@@ -23,7 +23,7 @@
 |item_name|string|null: false|
 |description|text|null: false|
 |category_id|integer|null: false|
-|status|integer|null: false|
+|status_id|integer|null: false|
 |cost|integer|null: false|
 |prefecture_id|integer|null: false|
 |day|integer|null: false|
