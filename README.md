@@ -1,74 +1,24 @@
-## users_table
-|Column|Type|Options|
-|------|----|-------|
-|nickname|string|null: false|
-|email|string|null: false|
-|password|string|null: false|
-|first_name|string|null: false|
-|family_name|string|null: false|
-|first_name_kana|string|null: false|
-|family_name_kane|string|null: false|
-|birthday|date|null: false|
+# README
 
-### Association
-- has_many :items
-- has_many :comments
-- has_many :user_items
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
+Things you may want to cover:
 
+* Ruby version
 
-## items_table
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|description|text|null: false|
-|category_id|integer|null: false|
-|status_id|integer|null: false|
-|cost|integer|null: false|
-|prefecture_id|integer|null: false|
-|day_id|integer|null: false|
-|price|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+* System dependencies
 
+* Configuration
 
-### Association
-- belongs_to :user
-- has_many :comments
-- has_one :user_item
+* Database creation
 
-## user_item_table
-|Column|Type|Options|
-|------|----|-------|
-|item_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+* Database initialization
 
-### Association
-- belongs_to :user
-- belongs_to :item
-- has_one :address
+* How to run the test suite
 
-## address_table
-|Column|Type|Options|
-|------|----|-------|
-|user_item_id|integer|null: false, foreign_key: true|
-|post_cord|string|null: false|
-|prefecture_id|integer|null: false|
-|city|string|null: false|
-|address|string|null: false|
-|building_name|string|
-|phone_number|string|null: false|
+* Services (job queues, cache servers, search engines, etc.)
 
-### Association
-- belongs_to :user_item
+* Deployment instructions
 
-## comments_table
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|item_id|integer|null: false, foreign_key: true|
-|comments|text|
-
-### Association
-- belongs_to :user_item
-- belongs_to :items
-
+* ...
