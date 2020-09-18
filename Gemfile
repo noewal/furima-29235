@@ -52,3 +52,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+group :development do
+  gem 'rubocop', require: false
+end
+
+gem 'devise'
+
+gem 'pry-rails'
+
+gem 'rspec-rails'
+gem 'factory_bot_rails'
+gem 'faker'

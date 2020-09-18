@@ -1,24 +1,74 @@
-# README
+## users_table
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false|
+|email|string|null: false|
+|password|string|null: false|
+|first_name|string|null: false|
+|family_name|string|null: false|
+|first_name_kana|string|null: false|
+|family_name_kane|string|null: false|
+|birthday|date|null: false|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+- has_many :items
+- has_many :comments
+- has_many :user_items
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+## items_table
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|description|text|null: false|
+|category_id|integer|null: false|
+|status_id|integer|null: false|
+|delivery_cost_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|day_id|integer|null: false|
+|price|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
-* Configuration
 
-* Database creation
+### Association
+- belongs_to :user
+- has_many :comments
+- has_one :user_item
 
-* Database initialization
+## user_item_table
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
 
-* How to run the test suite
+### Association
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
-* Services (job queues, cache servers, search engines, etc.)
+## address_table
+|Column|Type|Options|
+|------|----|-------|
+|user_item_id|integer|null: false, foreign_key: true|
+|post_cord|string|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|address|string|null: false|
+|building_name|string|
+|phone_number|string|null: false|
 
-* Deployment instructions
+### Association
+- belongs_to :user_item
 
-* ...
+## comments_table
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|item_id|integer|null: false, foreign_key: true|
+|comments|text|
+
+### Association
+- belongs_to :user_item
+- belongs_to :items
+
