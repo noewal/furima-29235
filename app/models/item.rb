@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+  belongs_to :user
+  has_one_attached :image
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :day
@@ -21,5 +24,5 @@ class Item < ApplicationRecord
     validates:status_id
   end
 
-  belongs_to :users
+  
 end
