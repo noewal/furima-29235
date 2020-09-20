@@ -12,8 +12,8 @@ class Item < ApplicationRecord
   with_options presence: true do
     validates :name,          length: { maximum: 40 }
     validates :description,   length: { maximum: 1000 }
-    validates :price,         numericality: { greater_than_or_equal_to: 300 }, 
-                              numericality: { less_than_or_equal_to: 9999999 } 
+    validates :price,         numericality: { greater_than_or_equal_to: 300 }
+    validates :price,         numericality: { less_than_or_equal_to: 9999999 } 
   end
 
   with_options numericality: { other_than: 1},presence:true do
