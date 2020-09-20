@@ -5,10 +5,11 @@ RSpec.describe Item, type: :model do
 
     before do
       @item = FactoryBot.build(:item)
+      @item.image = fixture_file_upload('public/images/test_image.png')
     end
 
     context '商品出品が出来る時' do
-      it 'name,description,price,
+      it 'image,name,description,price,
       category_id,status_id,delivery_cost_id,prefecture_id,day_id,price,user_idが全て存在すれば商品出品が出来る' do
         expect(@item).to be_valid
       end
@@ -30,6 +31,12 @@ RSpec.describe Item, type: :model do
     end
 
     context '商品出品が出来ない時' do
+      it 'imageが空では商品出品が出来ない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+      
       it 'nameが空では商品出品が出来ない' do
         @item.name = nil
         @item.valid?

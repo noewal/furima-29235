@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :item do
-    
     name                  {"テスト商品"}
     description           {"説明文です"}
     category_id         {2}

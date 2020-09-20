@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
 
   with_options presence: true do
+    validates :image
     validates :name,          length: { maximum: 40 }
     validates :description,   length: { maximum: 1000 }
     validates :price,         numericality: { greater_than_or_equal_to: 300 }
