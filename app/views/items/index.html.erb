@@ -146,7 +146,7 @@
         <% end %>
       </li>
       
-    <% else @items.length == 0%>
+    <% else %>
     <% @items.each do |item| %>
       <li class='list'>
       <%= link_to item_path(item.id) do %>
