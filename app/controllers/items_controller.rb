@@ -6,11 +6,6 @@ class ItemsController < ApplicationController
 
   end
 
-  def show
-    
-  end
-
-
   def new
     @item = Item.new
 
@@ -23,10 +18,6 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-
   end
 
   def update
