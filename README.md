@@ -7,7 +7,7 @@
 |first_name|string|null: false|
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
-|family_name_kane|string|null: false|
+|family_name_kana|string|null: false|
 |birthday|date|null: false|
 
 ### Association
@@ -51,7 +51,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_item_id|integer|null: false, foreign_key: true|
-|post_cord|string|null: false|
+|post_code|string|null: false|
 |prefecture_id|integer|null: false|
 |city|string|null: false|
 |address|string|null: false|
