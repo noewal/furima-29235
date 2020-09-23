@@ -3,6 +3,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(created_at: :desc)
+    @user_item = UserItem.all
+  end
+
+  def show
+    @user_item = UserItem.all
   end
 
   def new

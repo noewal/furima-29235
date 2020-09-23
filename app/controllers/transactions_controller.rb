@@ -1,30 +1,34 @@
 class TransactionsController < ApplicationController
-
   def index
     @item = Item.find(params[:item_id])
   end
 
+  def new
+    @item = FurimaApp.new
+  end
+
   def create
-    @item = Item.new(@item.price item_params[:price])
+    @item = FurimaApp.new(item_params)
     if @item.valid?
       pay_item
       @item.save
       return redirect_to root_path
     else
-      render :index
+      render 'index'
     end
   end
 
   private
 
   def item_params
-    params.permit(:@item.price, :token)
+    params.permit(:token,
+      :post_code, :prefecture_id, :city, :address, :address, :phone_number, :item_id).merge(user_id: current_user.id)
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_c31ec670c417e408a45d58d6"
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: item_params[:@item.price],
+      amount: Item.find(params[:item_id]).price,
       card: item_params[:token],
       currency:'jpy'
     )
