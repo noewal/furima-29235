@@ -1,13 +1,13 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     @items = Item.all.order(created_at: :desc)
-    @user_item = UserItem.all
+    @useritems = Useritem.all
   end
 
   def show
-    @user_item = UserItem.all
+    @useritem = Useritem.all
   end
 
   def new

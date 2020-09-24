@@ -15,7 +15,7 @@ class FurimaApp
 # validates :building_name
 
   def save
-     UserItem.create(user_id: user_id,items_id: item_id)
+     Useritem.create(user_id: user_id,item_id: item_id)
 
      Address.create(post_code: post_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name,phone_number: phone_number,item_id: item_id)
   end
