@@ -1,14 +1,17 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_useritem, only: [:index, :show]
+  
   def index
-    @items = Item.order("created_at DESC")
-
+    @items = Item.all.order(created_at: :desc)
   end
 
   def new
-    @item = Item.new
-
+    if user_signed_in?
+      @item = Item.new
+    else
+      authenticate_user!
+    end
   end
 
   def create
@@ -47,5 +50,8 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-  
+
+  def set_useritem
+    @useritems = Useritem.all
+  end
 end
