@@ -10,11 +10,6 @@ require 'rails_helper'
          expect(@furima_app).to be_valid
        end
 
-       it 'building_nameが空でも保存出来ること' do
-        @furima_app.building_name = nil
-        expect(@furima_app).to be_valid
-      end
-
      end
 
      context '商品購入結果が保存出来ない時' do
@@ -59,6 +54,12 @@ require 'rails_helper'
          @furima_app.valid?
          expect(@furima_app.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
        end
+
+       it 'tokenが空では保存できないこと' do
+        @furima_app.token = nil
+        @furima_app.valid?
+        expect(@furima_app.errors.full_messages).to include("Token can't be blank")
+      end
 
      end
 
