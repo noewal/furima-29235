@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   def index
     if user_signed_in?
+      @order = FurimaApp.new(order_params)
       @item = Item.find(params[:item_id])
       if current_user.id == @item.user.id || @item.useritem != nil
         redirect_to root_path
